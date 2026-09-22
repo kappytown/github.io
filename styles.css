@@ -8,6 +8,8 @@
   --accent: #d89b29;
   --accent-dark: #7a4f12;
   --steel: #27313d;
+  --ocean: #103948;
+  --foam: #e9f5f5;
   --green: #2f6f52;
 }
 
@@ -38,8 +40,8 @@ img {
 }
 
 .site-header {
-  border-bottom: 1px solid rgba(21, 23, 26, 0.08);
-  background: rgba(247, 248, 245, 0.88);
+  border-bottom: 1px solid rgba(247, 248, 245, 0.16);
+  background: rgba(16, 57, 72, 0.9);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -62,6 +64,7 @@ img {
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0;
+  color: #ffffff;
 }
 
 .brand-mark {
@@ -81,7 +84,7 @@ img {
   display: flex;
   align-items: center;
   gap: 20px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -91,14 +94,19 @@ img {
 }
 
 .hero {
-  padding: 92px 0 58px;
+  min-height: min(720px, calc(100svh - 28px));
+  padding: 122px 0 96px;
+  display: flex;
+  align-items: flex-end;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(10, 28, 35, 0.9) 0%, rgba(10, 28, 35, 0.58) 48%, rgba(10, 28, 35, 0.18) 100%),
+    linear-gradient(0deg, rgba(10, 28, 35, 0.6), rgba(10, 28, 35, 0.08) 42%),
+    url("images/fins-out-surf.jpg") center / cover no-repeat;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-  gap: 44px;
-  align-items: end;
+.hero-content {
+  max-width: 760px;
 }
 
 .eyebrow {
@@ -110,8 +118,12 @@ img {
   margin-bottom: 14px;
 }
 
+.hero .eyebrow {
+  color: #f4c86d;
+}
+
 h1 {
-  font-size: clamp(2.45rem, 6vw, 5.6rem);
+  font-size: 7rem;
   line-height: 0.96;
   letter-spacing: 0;
   margin: 0;
@@ -119,57 +131,83 @@ h1 {
 }
 
 .hero-text {
-  color: var(--muted);
-  font-size: 1.16rem;
-  max-width: 660px;
-  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.28rem;
+  max-width: 680px;
+  margin: 24px 0 0;
 }
 
-.hero-panel {
-  background: var(--steel);
-  color: #f7f8f5;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 24px 60px rgba(39, 49, 61, 0.16);
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
 }
 
-.hero-panel h2 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
+.button.hero-primary {
+  background: #f4c86d;
+  color: #18130b;
+}
+
+.button.hero-secondary {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.principles {
+  padding: 70px 0;
+  background: #ffffff;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(260px, 0.8fr);
+  gap: 24px 56px;
+  align-items: start;
+}
+
+.principles h2 {
+  font-size: 3.1rem;
+  line-height: 1;
+  margin: 0;
   letter-spacing: 0;
 }
 
-.hero-panel p {
+.principles-grid > p {
+  color: var(--muted);
+  font-size: 1.08rem;
   margin: 0;
-  color: rgba(247, 248, 245, 0.72);
 }
 
-.stats {
+.principle-list {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
 }
 
-.stat {
-  border: 1px solid rgba(247, 248, 245, 0.16);
+.principle {
+  border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 14px;
+  padding: 18px;
+  background: var(--paper);
 }
 
-.stat strong {
+.principle strong {
   display: block;
-  font-size: 1.6rem;
-  line-height: 1;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
 
-.stat span {
-  color: rgba(247, 248, 245, 0.68);
-  font-size: 0.9rem;
+.principle span {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .apps {
-  padding: 34px 0 92px;
+  padding: 82px 0 96px;
 }
 
 .section-heading {
@@ -181,7 +219,7 @@ h1 {
 }
 
 .section-heading h2 {
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: 2.55rem;
   line-height: 1.05;
   margin: 0;
   letter-spacing: 0;
@@ -345,13 +383,25 @@ h1 {
 }
 
 @media (max-width: 820px) {
-  .hero {
-    padding-top: 62px;
+  h1 {
+    font-size: 4.4rem;
   }
 
-  .hero-grid,
+  .principles h2,
+  .section-heading h2 {
+    font-size: 2.25rem;
+  }
+
+  .hero {
+    min-height: 620px;
+    padding: 92px 0 68px;
+    background-position: center;
+  }
+
   .app-grid,
-  .section-heading {
+  .section-heading,
+  .principles-grid,
+  .principle-list {
     grid-template-columns: 1fr;
     display: grid;
   }
@@ -367,8 +417,8 @@ h1 {
     justify-content: space-between;
   }
 
-  .hero-panel {
-    margin-top: 4px;
+  .principles {
+    padding: 56px 0;
   }
 
   .app-visual {
@@ -377,21 +427,33 @@ h1 {
 }
 
 @media (max-width: 520px) {
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  .hero-text {
+    font-size: 1.08rem;
+  }
+
+  .principles h2,
+  .section-heading h2 {
+    font-size: 1.95rem;
+  }
+
   .nav-links {
-    gap: 12px;
-    font-size: 0.9rem;
+    gap: 10px;
+    font-size: 0.86rem;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .hero {
-    padding: 46px 0 36px;
+    min-height: 560px;
+    padding: 72px 0 52px;
   }
 
   .apps {
     padding-bottom: 64px;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
   }
 
   .app-visual {
