@@ -40,8 +40,8 @@ img {
 }
 
 .site-header {
-  border-bottom: 1px solid rgba(247, 248, 245, 0.16);
-  background: rgba(16, 57, 72, 0.9);
+  border-bottom: 1px solid rgba(21, 23, 26, 0.08);
+  background: rgba(255, 255, 255, 0.94);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -49,7 +49,7 @@ img {
 }
 
 .nav {
-  min-height: 68px;
+  min-height: 78px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,26 +59,20 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1.05rem;
-  font-weight: 800;
   text-decoration: none;
-  letter-spacing: 0;
-  color: #ffffff;
 }
 
-.brand-mark {
-  width: 42px;
-  height: 42px;
+.brand-logo {
+  width: 220px;
+  height: auto;
   flex: 0 0 auto;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 20px;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
   font-size: 0.95rem;
   font-weight: 700;
 }
