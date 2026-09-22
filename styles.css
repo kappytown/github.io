@@ -83,15 +83,44 @@ img {
 }
 
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: min(720px, calc(100svh - 28px));
   padding: 122px 0 96px;
   display: flex;
   align-items: flex-end;
   color: #ffffff;
+  background-color: #07161d;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero::before {
+  z-index: -2;
+  background-image: url("images/fins-out-hero-surf-air.jpg");
+  background-image: image-set(
+    url("images/fins-out-hero-surf-air.webp") type("image/webp"),
+    url("images/fins-out-hero-surf-air.jpg") type("image/jpeg")
+  );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: saturate(0.82) contrast(0.9);
+  opacity: 0.9;
+}
+
+.hero::after {
+  z-index: -1;
   background:
-    linear-gradient(90deg, rgba(10, 28, 35, 0.9) 0%, rgba(10, 28, 35, 0.58) 48%, rgba(10, 28, 35, 0.18) 100%),
-    linear-gradient(0deg, rgba(10, 28, 35, 0.6), rgba(10, 28, 35, 0.08) 42%),
-    url("images/fins-out-surf.jpg") center / cover no-repeat;
+    linear-gradient(90deg, rgba(7, 22, 29, 0.88) 0%, rgba(7, 22, 29, 0.68) 44%, rgba(7, 22, 29, 0.2) 100%),
+    linear-gradient(0deg, rgba(7, 22, 29, 0.62), rgba(7, 22, 29, 0.12) 46%);
 }
 
 .hero-content {
@@ -384,7 +413,10 @@ h1 {
   .hero {
     min-height: 620px;
     padding: 92px 0 68px;
-    background-position: center;
+  }
+
+  .hero::before {
+    background-position: 66% center;
   }
 
   .app-grid,
