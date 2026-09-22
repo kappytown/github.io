@@ -59,7 +59,7 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 1.05rem;
   font-weight: 800;
   text-decoration: none;
@@ -68,16 +68,10 @@ img {
 }
 
 .brand-mark {
-  width: 55px;
-  height: 34px;
-  border-radius: 9px;
-  background:
-    linear-gradient(135deg, rgba(243, 193, 95, 0.95), rgba(216, 155, 41, 0.95)),
-    var(--accent);
-  display: grid;
-  place-items: center;
-  color: #1f1b12;
-  font-weight: 900;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
 }
 
 .nav-links {
